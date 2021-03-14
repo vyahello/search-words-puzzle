@@ -1,16 +1,22 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Build Status](https://travis-ci.org/vyahello/search-words-puzzle.svg?branch=search-words-puzzle-tool)](https://travis-ci.org/vyahello/search-words-puzzle)
+[![Coverage Status](https://coveralls.io/repos/github/vyahello/search-words-puzzle/badge.svg?branch=search-words-puzzle-tool)](https://coveralls.io/github/vyahello/search-words-puzzle?branch=search-words-puzzle-tool)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with pylint](https://img.shields.io/badge/pylint-checked-blue)](https://www.pylint.org)
 [![Checked with flake8](https://img.shields.io/badge/flake8-checked-blue)](http://flake8.pycqa.org/)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 [![Checked with pydocstyle](https://img.shields.io/badge/pydocstyle-checked-yellowgreen)](http://www.pydocstyle.org/)
 [![Checked with interrogate](https://img.shields.io/badge/interrogate-checked-yellowgreen)](https://interrogate.readthedocs.io/en/latest/)
+[![CodeFactor](https://www.codefactor.io/repository/github/vyahello/search-words-puzzle/badge)](https://www.codefactor.io/repository/github/vyahello/search-words-puzzle)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 
 # Search words puzzle
 
-> A CLI tool to search words in a randomly generated grid of letters.
+> The project provides a command line interface tool to search words in a randomly generated grid of letters.
+> 
+> Words can be found along any diagonal, forwards, upwards, downwards or backwards and cannot be wrapped between edges.
+
 
 ## Tools
 
@@ -86,7 +92,12 @@ python -m puzzle --help
 
 ### Testing
 
-TBD
+Generally, `pytest` tool is used to organize testing procedure.
+
+Please follow next command to run unittests:
+```bash
+pytest -m unittest
+```
 
 ### CI
 
@@ -104,8 +115,7 @@ In order to install python development dependencies before starting the code ass
 
 ### Documentation style
 
-The is based on [Google Style Python Docstring](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) for
-documenting a source code. 
+The project is based on [Google Style Python Docstring](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) for source code documentation. 
 It is possible to integrate this style of docstring with PyCharm, please follow next instructions:
 `Settings -> Tools -> Python Integrated Tools -> Docstring format -> Google`.
 

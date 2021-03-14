@@ -10,3 +10,4 @@ count = True
 eradicate-aggressive = True
 pytest-parametrize-names-type = csv
 pytest-parametrize-values-type = tuple
+ignore = U100, I100, I201, ANN101, ANN102

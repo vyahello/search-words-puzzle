@@ -98,6 +98,16 @@ DOC
 }
 
 
+check-unittests() {
+:<<DOC
+  Start unittests using "pytest" framework
+DOC
+  (
+    pretty-printer-box "Running unittests ..." && pytest -m unittest
+  ) || store-failures "unittests are failed"
+}
+
+
 start-analysis() {
 :<<DOC
   Start all code analysis tools
@@ -107,6 +117,7 @@ DOC
   check-pylint
   check-mypy
   check-docstrings
+  check-unittests
 }
 
 
