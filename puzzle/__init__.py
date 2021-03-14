@@ -1,7 +1,4 @@
-"""
-A package contains a set of interfaces to operate `search-words-puzzle`
-application.
-"""
+"""A package contains a set of interfaces for `search-words-puzzle` app."""
 
 __author__: str = 'Vladimir Yahello'
 __email__: str = 'vyahello@gmail.com'
