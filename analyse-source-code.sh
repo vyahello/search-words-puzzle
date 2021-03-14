@@ -84,6 +84,20 @@ DOC
 }
 
 
+check-docstrings() {
+:<<DOC
+  Start static documentation code style formatters
+DOC
+  ( pretty-printer-box "Running pydocstyle analysis ..." &&
+    pydocstyle --explain --count ${PACKAGE}
+  ) || store-failures "pydocstyle analysis is failed"
+
+  ( pretty-printer-box "Running interrogate analysis ..." &&
+    interrogate -vv ${PACKAGE}
+  ) || store-failures "interrogate analysis is failed"
+}
+
+
 start-analysis() {
 :<<DOC
   Start all code analysis tools
@@ -92,6 +106,7 @@ DOC
   check-flake8
   check-pylint
   check-mypy
+  check-docstrings
 }
 
 
