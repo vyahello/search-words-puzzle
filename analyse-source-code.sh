@@ -74,6 +74,16 @@ DOC
 }
 
 
+check-mypy() {
+:<<DOC
+  Start "mypy" code analyser
+DOC
+  ( pretty-printer-box "Running mypy analysis ..." &&
+    mypy --package ${PACKAGE}
+  ) || store-failures "mypy analysis is failed"
+}
+
+
 start-analysis() {
 :<<DOC
   Start all code analysis tools
@@ -81,6 +91,7 @@ DOC
   check-black
   check-flake8
   check-pylint
+  check-mypy
 }
 
 
