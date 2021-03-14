@@ -54,11 +54,22 @@ DOC
 }
 
 
+check-flake8() {
+:<<DOC
+  Start "flake8" code analyser
+DOC
+  ( pretty-printer-box "Running flake8 analysis ..." &&
+    flake8 "${PACKAGE}"
+  ) || store-failures "flake8 analysis is failed"
+}
+
+
 start-analysis() {
 :<<DOC
   Start all code analysis tools
 DOC
   check-black
+  check-flake8
 }
 
 
