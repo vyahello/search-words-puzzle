@@ -64,12 +64,23 @@ DOC
 }
 
 
+check-pylint() {
+:<<DOC
+  Start "pylint" code analyser
+DOC
+  ( pretty-printer-box "Running pylint analysis ..." &&
+    pylint $(find "${PACKAGE}" -iname "${PY_FILES}")
+  ) || store-failures "pylint analysis is failed"
+}
+
+
 start-analysis() {
 :<<DOC
   Start all code analysis tools
 DOC
   check-black
   check-flake8
+  check-pylint
 }
 
 
