@@ -1,0 +1,9 @@
+Title
+
+[Problem]
+.
+
+[Solution]
+.
+
+# Please run the following command in repository root to activate this template: git config commit.template .gitmessage.txt
