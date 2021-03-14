@@ -1,0 +1,12 @@
+[tool.black]
+line-length = 80
+skip-string-normalization = true
+target-version = ["py36", "py37", "py38"]
+# "py39" target-version is not supported by black yet.
+# A corresponding feature request is created - https://github.com/psf/black/issues/2043
+exclude = '''
+/(
+    \.pytest_cache
+    \.mypy_cache
+)/
+'''
