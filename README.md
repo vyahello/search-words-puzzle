@@ -48,7 +48,7 @@ Install the tool via pip:
 pip install git@github.com:vyahello/search-words-puzzle@0.0.1
 ```
 
-Then please run **search-words-puzzle** tool from your shell:
+Then please check the tool instructions from your shell:
 ```bash
 search-words-puzzle --help
 ```
@@ -63,10 +63,11 @@ git clone git@github.com:vyahello/search-words-puzzle.git
 Install the tool:
 ```bash
 cd search-words-puzzle
+git checkout search-words-puzzle-tool
 python setup.py install
 ```
 
-Run the tool via shell:
+Run the tool help via shell:
 ```bash
 search-words-puzzle --help
 ```
@@ -81,12 +82,13 @@ git clone git@github.com:vyahello/search-words-puzzle.git
 Install the tool requirements:
 ```bash
 cd search-words-puzzle
+git checkout search-words-puzzle-tool
 python3 -m venv puzzle-env
 . puzzle-env/bin/activate
 pip install -r requirements.txt
 ```
 
-Run the tool via python:
+Run the tool help via python:
 ```bash
 python -m puzzle --help
 ```
@@ -146,7 +148,7 @@ def do_thing(first: int, second: int) -> int:
         second (int): parameter declares ...
 
     Raises:
-        `ValueError` if ...
+        ValueError if ...
 
     Returns: a result of ...
     """
