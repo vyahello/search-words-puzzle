@@ -25,7 +25,6 @@
 - [typer](https://typer.tiangolo.com/)
 - [loguru](https://loguru.readthedocs.io/en/stable/index.html)
 
-
 ### Development
 
 - [travis](https://travis-ci.org/)
@@ -36,6 +35,7 @@
 - [flake8](http://flake8.pycqa.org/en/latest/)
 - [pydocstyle](https://github.com/PyCQA/pydocstyle)
 - [interrogate](https://interrogate.readthedocs.io/en/latest/)
+- [bats](https://github.com/sstephenson/bats)
 
 ## Usage
 
@@ -59,12 +59,14 @@ Clone the repository:
 ```bash
 git clone git@github.com:vyahello/search-words-puzzle.git
 ```
-Install the tool from setup.py module:
+
+Install the tool:
 ```bash
+cd search-words-puzzle
 python setup.py install
 ```
 
-Then please run **search-words-puzzle** tool from your shell:
+Run the tool via shell:
 ```bash
 search-words-puzzle --help
 ```
@@ -76,13 +78,16 @@ Clone the repository:
 git clone git@github.com:vyahello/search-words-puzzle.git
 ```
 
-Install the requirements for a tool:
+Install the tool requirements:
 ```bash
+cd search-words-puzzle
+python3 -m venv puzzle-env
+. puzzle-env/bin/activate
 pip install -r requirements.txt
 ```
 
-Run tool from python:
-```
+Run the tool via python:
+```bash
 python -m puzzle --help
 ```
 
@@ -97,6 +102,14 @@ Generally, `pytest` tool is used to organize testing procedure.
 Please follow next command to run unittests:
 ```bash
 pytest -m unittest
+```
+
+In addition, package unit tests are implemented with [bats](https://github.com/sstephenson/bats) framework:
+> `PACKAGE_NAME` and `PACKAGE_VERSION` environment variables should be set to run tests.
+
+```bash
+export PACKAGE_NAME=search-words-puzzle PACKAGE_VERSION=0.0.1
+bats --pretty test-puzzle-tool.bats
 ```
 
 ### CI

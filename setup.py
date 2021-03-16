@@ -49,7 +49,7 @@ class _Package:
     def goal(self) -> str:
         """Return a package goal e.g `reporting results`."""
         return self._read(
-            pattern=r'(?<=""")[\w\s\.`]+',
+            pattern=r'(?<=""")[\w\s\.`-]+',
         )
 
     @property
