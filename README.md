@@ -48,7 +48,7 @@ Install the tool via pip:
 pip install git@github.com:vyahello/search-words-puzzle@0.0.1
 ```
 
-Then please run **search-words-puzzle** tool from your shell:
+Then please check the tool instructions from your shell:
 ```bash
 search-words-puzzle --help
 ```
@@ -65,7 +65,7 @@ search-words-puzzle
 python setup.py install
 ```
 
-Then please run **search-words-puzzle** tool from your shell:
+Then please check the tool instructions from your shell:
 ```bash
 search-words-puzzle --help
 ```
@@ -83,7 +83,7 @@ search-words-puzzle
 pip install -r requirements.txt
 ```
 
-Run tool from python:
+Then please check the tool instructions from your shell:
 ```
 python -m puzzle --help
 ```
