@@ -19,10 +19,10 @@
 > 
 > Words can be found along any diagonal, forwards, upwards, downwards or backwards and cannot be wrapped between edges.
 
-
 ## Tools
 
 ### Production
+
 - python 3.7, 3.8, 3.9
 - [typer](https://typer.tiangolo.com/)
 - [loguru](https://loguru.readthedocs.io/en/stable/index.html)
@@ -41,19 +41,9 @@
 
 ## Usage
 
+![Usage](media/howto.gif)
+
 ### Quick start
-
-Install the tool via pip:
-```bash
-pip install git@github.com:vyahello/search-words-puzzle@0.0.1
-```
-
-Then please check the tool instructions from your shell:
-```bash
-search-words-puzzle --help
-```
-
-### Source code
 
 Clone the repository:
 ```bash
@@ -156,6 +146,7 @@ def do_thing(first: int, second: int) -> int:
 ```
 
 ### Logging
+
 If you need a logger object, you have to define it as private variable on a module level like:
 ```python
 from loguru import logger as _logger
