@@ -3,7 +3,7 @@
 
 setup() {
 :<<DOC
-  Installs puzzle package
+  Install puzzle package
 DOC
   python setup.py install
 }
@@ -11,7 +11,7 @@ DOC
 
 teardown() {
 :<<DOC
-  Removes puzzle package
+  Remove puzzle package
 DOC
   rm -rf ${PACKAGE_NAME}.egg-info dist build
   pip uninstall -y ${PACKAGE_NAME}

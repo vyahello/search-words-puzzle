@@ -4,7 +4,7 @@ properties interfaces.
 """
 import pytest
 
-from puzzle.properties import Coordinate, GridProperty
+from puzzle.properties import Coordinate, GridSize
 
 pytestmark = pytest.mark.unittest
 
@@ -24,12 +24,12 @@ def coordinate() -> Coordinate:
 
 
 @pytest.fixture(scope='module')
-def grid_property() -> GridProperty:
+def grid_size() -> GridSize:
     """Return a custom grid property object.
 
     A grid with 15 x 15 size.
     """
-    yield GridProperty(height=_expected_height, width=_expected_width)
+    yield GridSize(height=_expected_height, width=_expected_width)
 
 
 def test_coordinate_props(coordinate: Coordinate) -> None:
@@ -74,10 +74,10 @@ def test_invalid_coordinate() -> None:
         Coordinate(x_axis='Foo', y_axis='Bar')
 
 
-def test_grid_property(grid_property: GridProperty) -> None:
+def test_grid_properties(grid_size: GridSize) -> None:
     """Test the coordinate contains proper x_axis and y_axis properties."""
-    height = grid_property.height
-    width = grid_property.width
+    height: int = grid_size.height
+    width: int = grid_size.width
     assert (
         _expected_height == height
     ), f'Expect to see {_expected_height} height but got - {height}'
@@ -86,11 +86,11 @@ def test_grid_property(grid_property: GridProperty) -> None:
     ), f'Expect to see {_expected_width} width but got - {width}'
 
 
-def test_invalid_grid_property() -> None:
-    """Test invalid grid properties data type.
+def test_invalid_grid_size() -> None:
+    """Test invalid grid properties data types.
 
     The grid should match only integers.
-    TypeError should be raised if invalid is passed.
+    TypeError should be raised if invalid property is passed.
     """
     with pytest.raises(TypeError):
-        GridProperty(height='Foo', width='Bar')
+        GridSize(height='Foo', width='Bar')

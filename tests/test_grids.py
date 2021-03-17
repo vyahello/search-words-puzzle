@@ -5,7 +5,7 @@ grids interfaces.
 import pytest
 
 from puzzle.grids import Content, GridContent, Grid, RandomWordsGrid
-from puzzle.properties import Coordinate, LetterCoordinates, GridProperty
+from puzzle.properties import Coordinate, LetterCoordinates, GridSize
 
 pytestmark = pytest.mark.unittest
 
@@ -20,7 +20,7 @@ def random_words_grid() -> Grid:
     Build a grid of letters when entering into the context manager.
     """
     with RandomWordsGrid(
-        grid_property=GridProperty(_grid_height, _grid_width)
+        grid_size=GridSize(_grid_height, _grid_width)
     ) as grid:  # type: Grid
         yield grid
 
@@ -93,24 +93,24 @@ def test_valid_grid_content(content: Content, result: str) -> None:
 
 
 @pytest.mark.parametrize(
-    'grid_property',
+    'grid_size',
     (
-        GridProperty(0, 0),
-        GridProperty(1, 0),
-        GridProperty(0, 1),
-        GridProperty(-1, 0),
-        GridProperty(0, -1),
-        GridProperty(1, -1),
-        GridProperty(-1, 1),
+        GridSize(0, 0),
+        GridSize(1, 0),
+        GridSize(0, 1),
+        GridSize(-1, 0),
+        GridSize(0, -1),
+        GridSize(1, -1),
+        GridSize(-1, 1),
     ),
 )
-def test_invalid_grid_size(grid_property: GridProperty) -> None:
+def test_invalid_grid_size(grid_size: GridSize) -> None:
     """The the combination of invalid grid size.
 
     ValueError should be raised in case of invalid grid size.
     """
     with pytest.raises(ValueError):
-        with RandomWordsGrid(grid_property) as grid:  # type: Grid
+        with RandomWordsGrid(grid_size) as grid:  # type: Grid
             str(grid.content)
 
 

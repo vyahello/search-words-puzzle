@@ -65,11 +65,11 @@ class Coordinate(SafePropertyMixin):
 
 
 @dataclass(frozen=True)
-class GridProperty(SafePropertyMixin):
-    """The class represents a particular grid property.
+class GridSize(SafePropertyMixin):
+    """The class represents a particular grid size.
 
     Example:
-    >>> grid = GridProperty(height=10, width=10)
+    >>> grid = GridSize(height=10, width=10)
     ...
     """
 

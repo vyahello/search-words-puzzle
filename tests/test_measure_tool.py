@@ -7,7 +7,7 @@ import time
 import pytest
 
 from puzzle.grids import RandomWordsGrid, Grid
-from puzzle.properties import GridProperty
+from puzzle.properties import GridSize
 from puzzle.puzzles import SearchWordPuzzle
 
 pytestmark = pytest.mark.unittest
@@ -24,7 +24,7 @@ def test_measure_word_search(word: str) -> None:
     """
     max_allowed_time: float = 0.5
     execution_start_time: float = time.time()
-    with RandomWordsGrid(GridProperty(50, 50)) as grid:  # type: Grid
+    with RandomWordsGrid(GridSize(50, 50)) as grid:  # type: Grid
         puzzle = SearchWordPuzzle(board=grid.content.to_coordinates())
         puzzle.coordinates(word)
         execution_end_time: float = time.time() - execution_start_time

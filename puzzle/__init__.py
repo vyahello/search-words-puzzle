@@ -10,10 +10,12 @@ from puzzle.grids import (  # noqa: F401
 from puzzle.puzzles import SearchPuzzle, SearchWordPuzzle  # noqa: F401
 from puzzle.properties import (
     Coordinate,
-    GridProperty,
+    GridSize,
     LetterCoordinates,
     SafePropertyMixin,
 )
+from puzzle.tools import start_words_search_puzzle
+
 
 __author__: str = 'Vladimir Yahello'
 __email__: str = 'vyahello@gmail.com'
@@ -26,9 +28,10 @@ __all__: Tuple[str, ...] = (
     'Coordinate',
     'Grid',
     'GridContent',
-    'GridProperty',
+    'GridSize',
     'LetterCoordinates',
     'SafePropertyMixin',
     'SearchPuzzle',
     'SearchWordPuzzle',
+    'start_words_search_puzzle',
 )

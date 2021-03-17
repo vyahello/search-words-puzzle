@@ -1,14 +1,11 @@
 """A module represents an entrypoint for `search-words-puzzle` app."""
 import re
 import textwrap
-from typing import List
 
-from loguru import logger as _logger
 from typer import Option, run
 
-from puzzle.grids import Grid, RandomWordsGrid
-from puzzle.properties import GridProperty
-from puzzle.puzzles import SearchPuzzle, SearchWordPuzzle
+from puzzle.properties import GridSize
+from puzzle.tools import start_words_search_puzzle
 
 
 def _validate_puzzle_parameters(word: str, grid_size: str) -> None:
@@ -52,19 +49,9 @@ def _tool_chain(
     """The tool searches words in a randomly generated grid of letters."""
     _validate_puzzle_parameters(word, grid_size)
     grid_height, grid_width = tuple(map(int, grid_size.split('x')))
-    with RandomWordsGrid(
-        grid_property=GridProperty(grid_height, grid_width)
-    ) as grid:  # type: Grid
-        puzzle: SearchPuzzle = SearchWordPuzzle(
-            board=grid.content.to_coordinates()
-        )
-        coordinates: List[str] = puzzle.coordinates(word)
-        if not coordinates:
-            _logger.info(f'"{word}" word is absent in a grid')
-        else:
-            _logger.info(
-                f'Found "{word}" word coordinates in a grid: {coordinates}'
-            )
+    start_words_search_puzzle(
+        grid_size=GridSize(grid_height, grid_width), word=word
+    )
 
 
 def easyrun() -> None:

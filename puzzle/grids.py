@@ -7,7 +7,7 @@ from typing import Any, List, Optional, Sequence, Type, Union
 
 from loguru import logger as _logger
 
-from puzzle.properties import Coordinate, GridProperty, LetterCoordinates
+from puzzle.properties import Coordinate, GridSize, LetterCoordinates
 
 
 class Content(ABC):
@@ -185,15 +185,15 @@ class RandomWordsGrid(Grid):
       - manually with **__del__**
 
     Example:
-    >>> with RandomWordsGrid(GridProperty(10, 10)) as grid:
+    >>> with RandomWordsGrid(GridSize(10, 10)) as grid:
     >>>     content = grid.content
     ...
     """
 
-    __slots__: Sequence[str] = ('_property', '_rows')
+    __slots__: Sequence[str] = ('_size', '_rows')
 
-    def __init__(self, grid_property: GridProperty) -> None:
-        self._property = grid_property
+    def __init__(self, grid_size: GridSize) -> None:
+        self._size = grid_size
         self._rows: List[str] = []
 
     @property
@@ -212,7 +212,7 @@ class RandomWordsGrid(Grid):
         Returns:
             int: a grid height e.g `10`.
         """
-        return self._property.height
+        return self._size.height
 
     @property
     def width(self) -> int:
@@ -221,7 +221,7 @@ class RandomWordsGrid(Grid):
         Returns:
             int: an abstract grid width e.g `10`.
         """
-        return self._property.width
+        return self._size.width
 
     def build(self) -> None:
         """Create a grid of randomly created letters (a-z only).
@@ -229,7 +229,7 @@ class RandomWordsGrid(Grid):
         Raises:
            ValueError: if the size of a grid is invalid.
         """
-        _logger.info(f'{self._property} is used')
+        _logger.info(f'{self._size} is used')
         if (self.height < 0 or self.width < 0) or (
             not self.height or not self.width
         ):
