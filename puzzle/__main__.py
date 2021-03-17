@@ -1,6 +1,6 @@
 """A module represents an entrypoint for `search-words-puzzle` app."""
-import textwrap
 import re
+import textwrap
 from typing import List
 
 from loguru import logger as _logger
