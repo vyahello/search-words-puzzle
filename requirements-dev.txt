@@ -4,6 +4,7 @@ coveralls==3.0.1
 flake8==3.8.4
 flake8-annotations==2.6.0
 flake8-annotations-complexity==0.0.6
+pytest-asyncio==0.14.0
 flake8-builtins==1.5.3
 flake8-comprehensions==3.3.1
 flake8-eradicate==1.0.0

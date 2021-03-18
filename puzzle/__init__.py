@@ -14,7 +14,7 @@ from puzzle.properties import (
     LetterCoordinates,
     SafePropertyMixin,
 )
-from puzzle.tools import start_words_search_puzzle
+from puzzle.tools import start_word_search_puzzle, start_words_search_puzzle
 
 
 __author__: str = 'Vladimir Yahello'
@@ -33,5 +33,6 @@ __all__: Tuple[str, ...] = (
     'SafePropertyMixin',
     'SearchPuzzle',
     'SearchWordPuzzle',
+    'start_word_search_puzzle',
     'start_words_search_puzzle',
 )

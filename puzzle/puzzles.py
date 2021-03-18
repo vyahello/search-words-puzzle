@@ -13,7 +13,7 @@ class SearchPuzzle(ABC):
     __slots__: Sequence[str] = ()
 
     @abstractmethod
-    def coordinates(self, item: str) -> List[str]:
+    async def coordinates(self, item: str) -> List[str]:
         """Return the abstract starting and ending coordinates of a given item.
 
         Args:
@@ -66,12 +66,12 @@ class SearchWordPuzzle(SearchPuzzle):
     def __init__(self, board: LetterCoordinates) -> None:
         self._board = board
 
-    def coordinates(self, item: str) -> List[str]:
+    async def coordinates(self, item: str) -> List[str]:
         """Return all starting and ending coordinates of a given word item.
 
         Example:
         >>> puzzle = SearchWordPuzzle(board)
-        >>> puzzle.coordinates('foo')
+        >>> await puzzle.coordinates('foo')
         ['Start at: (X13, Y36); End at: (X11, Y34)', ...]
 
         Args:

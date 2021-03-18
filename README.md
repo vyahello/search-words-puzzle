@@ -18,12 +18,14 @@
 > The project provides a command line interface tool to search words in a randomly generated grid of letters.
 > 
 > Words can be found along any diagonal, forwards, upwards, downwards or backwards and cannot be wrapped between edges.
+> It is possible to find random words from the pre-defined text file as well as a single custom word.
 
 ## Tools
 
 ### Production
 
 - python 3.7, 3.8, 3.9
+- asyncIO
 - [typer](https://typer.tiangolo.com/)
 - [loguru](https://loguru.readthedocs.io/en/stable/index.html)
 
@@ -60,6 +62,30 @@ python setup.py install
 Run the tool help via shell:
 ```bash
 search-words-puzzle --help
+
+
+  The tool searches words in a randomly generated grid of letters.
+
+Options:
+  --grid-size TEXT                The size for a randomly created grid of
+                                  letters (a-z only).  [default: 50x50]
+
+  --words-file-path PATH          A path to a custom text file with words to
+                                  search.  [default: payload/words.txt]
+
+  --words-limit INTEGER           Search N random words from a given text
+                                  file.  [default: 5]
+
+  --word TEXT                     A custom word to search in a grid of letters
+                                  e.g "foo".  [default: ]
+
+  --install-completion [bash|zsh|fish|powershell|pwsh]
+                                  Install completion for the specified shell.
+  --show-completion [bash|zsh|fish|powershell|pwsh]
+                                  Show completion for the specified shell, to
+                                  copy it or customize the installation.
+
+  --help                          Show this message and exit.
 ```
 
 ### Local debug
