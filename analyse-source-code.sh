@@ -12,6 +12,10 @@ FAILED_OUT="\033[0;31m"
 PASSED_OUT="\033[0;32m"
 NONE_OUT="\033[0m"
 
+# Specifies code assessment notification signs
+ALARM="🚨"
+CAKE_TIME="✨ 🍰 ✨"
+
 
 pretty-printer-box() {
 :<<DOC
@@ -129,13 +133,13 @@ DOC
   start-analysis
 
   if [[ ${#RESULT[@]} -ne 0 ]]; then
-    pretty-printer-box "${FAILED_OUT}There are some errors identified while assessing the code. Please see errors above.${NONE_OUT}"
+    pretty-printer-box "${FAILED_OUT}${ALARM} There are some errors identified while assessing the code. Please see errors above. ${NONE_OUT}"
     for item in "${RESULT[@]}"; do
-      pretty-printer-box "${FAILED_OUT}- ${item}${NONE_OUT}"
+      pretty-printer-box "${FAILED_OUT}${ALARM} ${item}${NONE_OUT}"
     done
     exit 100
   fi
-  pretty-printer-box "${PASSED_OUT}Code analysis is passed for the '$PACKAGE' project ${NONE_OUT}"
+  pretty-printer-box "${PASSED_OUT}Code analysis is passed for the '$PACKAGE' project ${NONE_OUT}${CAKE_TIME}"
 }
 
 

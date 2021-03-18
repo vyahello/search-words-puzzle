@@ -6,7 +6,7 @@ import pytest
 from puzzle.properties import Coordinate, LetterCoordinates
 from puzzle.puzzles import SearchWordPuzzle
 
-pytestmark = pytest.mark.unittest
+pytestmark = [pytest.mark.unittest, pytest.mark.asyncio]
 
 _board_of_letters: LetterCoordinates = {
     'm': [
@@ -117,7 +117,7 @@ _board_of_letters: LetterCoordinates = {
         ),
     ),
 )
-def test_puzzle_search_word_coordinates(
+async def test_puzzle_search_word_coordinates(
     word: str, coordinates: LetterCoordinates
 ) -> None:
     """Test the combination of given words are found in a board of letters.
@@ -125,24 +125,24 @@ def test_puzzle_search_word_coordinates(
     The word with starting/ending coordinates are expected to be generated.
     """
     puzzle = SearchWordPuzzle(_board_of_letters)
-    actual_coordinates = puzzle.coordinates(word)
+    actual_coordinates = await puzzle.coordinates(word)
     assert coordinates == actual_coordinates, (
         f'Expected: {coordinates} coordinates '
         f'for "{word}" word but got {actual_coordinates}'
     )
 
 
-def test_puzzle_invalid_board_of_letters() -> None:
+async def test_puzzle_invalid_board_of_letters() -> None:
     """Test that board of letters is empty.
 
     ValueError should be raised in case if empty board of letters.
     """
     puzzle = SearchWordPuzzle(board={})
     with pytest.raises(ValueError):
-        puzzle.coordinates('foo')
+        await puzzle.coordinates('foo')
 
 
-def test_puzzle_word_not_in_board() -> None:
+async def test_puzzle_word_not_in_board() -> None:
     """Test that a given word is absent in a board of letters."""
     puzzle = SearchWordPuzzle(
         board={
@@ -152,7 +152,7 @@ def test_puzzle_word_not_in_board() -> None:
             ]
         }
     )
-    coordinates: List[str] = puzzle.coordinates('foo')
+    coordinates: List[str] = await puzzle.coordinates('foo')
     assert (
         not coordinates
     ), f'Coordinates should be empty but "{coordinates}" found'
