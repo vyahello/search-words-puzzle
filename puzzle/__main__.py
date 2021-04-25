@@ -1,5 +1,4 @@
 """A module represents an entrypoint for `search-words-puzzle` app."""
-import asyncio
 import random
 import re
 import textwrap
@@ -11,6 +10,7 @@ from typer import Option, run
 from puzzle.grids import Grid, RandomWordsGrid
 from puzzle.properties import GridSize
 from puzzle.tools import start_word_search_puzzle, start_words_search_puzzle
+from puzzle.words import HiddenWord, HiddenWords
 
 
 def _validate_puzzle_grid_size(grid_size: str) -> None:
@@ -109,13 +109,13 @@ def _tool_chain(
         board = grid.content.to_coordinates()
         if word:
             _validate_puzzle_word(word)
-            asyncio.run(start_word_search_puzzle(board, word=word))
+            start_word_search_puzzle(HiddenWord(board, word))
         else:
             _validate_puzzle_words_path(words_file_path)
             random_words = _random_words(
                 path=words_file_path, limit=words_limit
             )
-            asyncio.run(start_words_search_puzzle(board, words=random_words))
+            start_words_search_puzzle(HiddenWords(board, random_words))
 
 
 def easyrun() -> None:

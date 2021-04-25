@@ -1,7 +1,6 @@
 """A module contains as set API for the puzzle properties."""
 from dataclasses import dataclass
-from typing import Any  # pylint:disable=unused-import
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple  # pylint:disable=unused-import
 
 LetterCoordinates = Dict[str, List['Coordinate']]
 
@@ -9,7 +8,7 @@ LetterCoordinates = Dict[str, List['Coordinate']]
 class SafePropertyMixin:  # pylint:disable=too-few-public-methods
     """The class represents a safe mixin in terms of used properties.
 
-    It is not supposed to be initiated as a part of mixin type.
+    It is not supposed to be initiated as it is a part of mixin type.
     """
 
     def __post_init__(self) -> None:

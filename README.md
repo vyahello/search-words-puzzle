@@ -25,7 +25,7 @@
 ### Production
 
 - python 3.7, 3.8, 3.9
-- asyncIO
+- [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
 - [typer](https://typer.tiangolo.com/)
 - [loguru](https://loguru.readthedocs.io/en/stable/index.html)
 

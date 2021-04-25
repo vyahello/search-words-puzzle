@@ -1,24 +1,24 @@
 """A module represents an API for the `search-words-puzzle` tool."""
-from typing import Generator, Iterable
+from multiprocessing import Pool, cpu_count
+from typing import Iterable
 
 from loguru import logger as _logger
 
-from puzzle.properties import LetterCoordinates
 from puzzle.puzzles import SearchPuzzle, SearchWordPuzzle
+from puzzle.words import HiddenWord, HiddenWords
 
 
-async def start_word_search_puzzle(board: LetterCoordinates, word: str) -> None:
+def start_word_search_puzzle(word: HiddenWord) -> None:
     """Start word search puzzle tool.
 
     It will generate a random grid of letters and match them with
     the corresponding word.
 
     Args:
-        board: (dict) a board with coordinates of grid letters.
-        word: (str) a word to search.
+        word: (HiddenWord) a word to search.
     """
-    puzzle: SearchPuzzle = SearchWordPuzzle(board)
-    coordinates: Iterable[str] = await puzzle.coordinates(word)
+    puzzle: SearchPuzzle = SearchWordPuzzle(word.board)
+    coordinates: Iterable[str] = puzzle.coordinates(word.value)
     if not coordinates:
         _logger.info(f'"{word}" word is absent in a grid')
     else:
@@ -27,17 +27,19 @@ async def start_word_search_puzzle(board: LetterCoordinates, word: str) -> None:
         )
 
 
-async def start_words_search_puzzle(
-    board: LetterCoordinates, words: Generator[str, None, None]
-) -> None:
+def start_words_search_puzzle(words: HiddenWords) -> None:
     """Start words search puzzle tool.
+
+    The search is conducted with parallel processes based on CPU cores amount.
 
     It will generate a random grid of letters and match them with
     the corresponding words.
 
     Args:
-        board: (dict) a board with coordinates of grid letters.
         words: (generator) a generator of words to search.
     """
-    for word in words:  # type: str
-        await start_word_search_puzzle(board, word)
+    pool = Pool(processes=cpu_count())
+    parallel_search = pool.map_async(
+        func=start_word_search_puzzle, iterable=words
+    )
+    parallel_search.get()

@@ -12,8 +12,8 @@ from puzzle.properties import (
     Coordinate,
     GridSize,
     LetterCoordinates,
-    SafePropertyMixin,
 )
+from puzzle.words import HiddenWord, HiddenWords
 from puzzle.tools import start_word_search_puzzle, start_words_search_puzzle
 
 
@@ -29,8 +29,9 @@ __all__: Tuple[str, ...] = (
     'Grid',
     'GridContent',
     'GridSize',
+    'HiddenWord',
+    'HiddenWords',
     'LetterCoordinates',
-    'SafePropertyMixin',
     'SearchPuzzle',
     'SearchWordPuzzle',
     'start_word_search_puzzle',
