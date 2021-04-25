@@ -55,7 +55,6 @@ git clone git@github.com:vyahello/search-words-puzzle.git
 Install the tool:
 ```bash
 cd search-words-puzzle
-git checkout search-words-puzzle-tool
 python setup.py install
 ```
 
@@ -98,7 +97,6 @@ git clone git@github.com:vyahello/search-words-puzzle.git
 Install the tool requirements:
 ```bash
 cd search-words-puzzle
-git checkout search-words-puzzle-tool
 python3 -m venv puzzle-env
 . puzzle-env/bin/activate
 pip install -r requirements.txt
