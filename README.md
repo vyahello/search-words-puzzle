@@ -1,7 +1,7 @@
 ![Screenshot](media/icon.png)
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Build Status](https://travis-ci.org/vyahello/search-words-puzzle.svg?branch=search-words-puzzle-tool)](https://travis-ci.org/vyahello/search-words-puzzle)
+[![Build Status](https://www.travis-ci.com/vyahello/search-words-puzzle.svg?branch=master)](https://travis-ci.org/vyahello/search-words-puzzle)
 [![Coverage Status](https://coveralls.io/repos/github/vyahello/search-words-puzzle/badge.svg?branch=search-words-puzzle-tool)](https://coveralls.io/github/vyahello/search-words-puzzle?branch=search-words-puzzle-tool)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with pylint](https://img.shields.io/badge/pylint-checked-blue)](https://www.pylint.org)
