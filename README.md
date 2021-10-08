@@ -142,6 +142,12 @@ In order to install python development dependencies before starting the code ass
 ./analyse-source-code.sh with-tools-installation
 ```
 
+### Commit template
+In order to activate commit message template please run the following command:
+```bash
+git config commit.template .gitmessage.txt
+```
+
 ### Documentation style
 
 The project is based on [Google Style Python Docstring](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) for source code documentation. 
