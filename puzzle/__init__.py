@@ -21,7 +21,7 @@ __author__: str = 'Vladimir Yahello'
 __email__: str = 'vyahello@gmail.com'
 __license__: str = 'MIT'
 __copyright__: str = f'Copyright 2021, {__author__}'
-__version__: str = '0.0.1'
+__version__: str = '0.0.2'
 __package_name__: str = 'search-words-puzzle'
 __all__: Tuple[str, ...] = (
     'Content',
