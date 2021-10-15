@@ -1,6 +1,21 @@
 Versions
 ========
 
+0.0.2
+--------
+_Release date: 15.10.2021_
+
+- Introduce git commit template
+- Remove redundant files from manifest
+- Update build status badge link
+- Add test to measure parallel words search
+- Introduce multiprocessing for words search
+- Remove howtos from test branch
+- Use asynchronous approach to match words in a grid
+- Implement a unified interface to start "words search" puzzle
+- Introduce the puzzle tool usage
+- Introduce project logo
+
 0.0.1
 --------
 _Release date: 17.03.2021_
